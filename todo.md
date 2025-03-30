@@ -65,7 +65,7 @@ verify
 mongosh --version
 ```
 
-# [TODO] pull and run MONGO container
+# [DONE] pull and run MONGO container
 Pull Image
 ```sh
 docker pull mongodb/mongodb-community-server:latest
@@ -85,8 +85,44 @@ connect to container with mongosh
 mongosh --port 27017
 ```
 
+For authentication of docker image, use 'cosign' (Optional)
 
-build database
+# [TODO] Build docker compose.yml
+Add mongo service, from mongo image, set to always restart and use standard mongo ports.
+
+```yml
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+```
+
+Set database credentials and volumes.
+
+```yml
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
+    volumes:
+      - baconstation-data-1
+      
+      /home/mumble/Documents/Projects/BaconStation/data:/data/db
+```
+
+Create volume to store data
+
+Use .env file, and input environment variables. Be sure to add .env to gitignore before commit. Also, don't use admin:admin credentials.
+
+```sh
+MONGO_INITDB_ROOT_USERNAME=admin
+MONGO_INITDB_ROOT_PASSWORD=admin
+```
+
+# build database
+
+
+
 build grafana container
 connect grafana with mongo
 build dashboard
