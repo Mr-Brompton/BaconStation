@@ -14,3 +14,4 @@ services:
 volumes:
   baconstation-data:
     driver: local
+

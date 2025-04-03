@@ -1,0 +1,27 @@
+{
+  "Footloose": {
+    "description": "A rebellious teenager moves to a small town where dancing is banned and fights to bring it back.",
+    "cast": ["Kevin Bacon", "Lori Singer", "John Lithgow"],
+    "release_date": "1984-02-17"
+  },
+  "Apollo 13": {
+    "description": "The story of the ill-fated Apollo 13 lunar mission and the astronauts' struggle to return home.",
+    "cast": ["Tom Hanks", "Kevin Bacon", "Bill Paxton"],
+    "release_date": "1995-06-30"
+  },
+  "Mystic River": {
+    "description": "Three childhood friends are reunited by a tragedy that forces them to confront their past.",
+    "cast": ["Sean Penn", "Tim Robbins", "Kevin Bacon"],
+    "release_date": "2003-10-08"
+  },
+  "X-Men: First Class": {
+    "description": "A prequel to the X-Men series, exploring the origins of the mutant team and their first battle.",
+    "cast": ["James McAvoy", "Michael Fassbender", "Kevin Bacon"],
+    "release_date": "2011-06-03"
+  },
+  "Crazy, Stupid, Love": {
+    "description": "A middle-aged man navigates the dating world after his wife leaves him, with help from a young bachelor.",
+    "cast": ["Steve Carell", "Ryan Gosling", "Kevin Bacon"],
+    "release_date": "2011-07-29"
+  }
+}
