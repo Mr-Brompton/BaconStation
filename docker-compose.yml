@@ -9,6 +9,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
       MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
+    network: baconstation-network
     volumes:
       - baconstation-data:/data/db
   grafana:
@@ -17,6 +18,7 @@ services:
     restart: unless-stopped
     ports:
       - '3000:3000'
+    network: baconstation-network
 
 volumes:
   baconstation-data:
