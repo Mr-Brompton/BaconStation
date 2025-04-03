@@ -1,0 +1,1 @@
+* * * * * root mongoexport --host 172.20.0.2 --db baconstation --collection movies --out /data/movies.json --username ${USERNAME} --password ${PASSWORD} --authenticationDatabase admin

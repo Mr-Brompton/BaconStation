@@ -1,11 +1,12 @@
-version: "3.9"
-
 networks:
   baconstation-network:
     driver: bridge
 
 volumes:
   baconstation-data:
+    driver: local
+
+  baconstation-export:
     driver: local
 
 services:
@@ -25,13 +26,20 @@ services:
       - baconstation-data:/data/db
   
   db-tools:
-    image: lironer/mongodb-tools
-    container_name: baconstation-dbtools
+    build:
+      context: .
+      dockerfile: baconstation-exporter.dockerfile
+    container_name: baconstation-exporter
     restart: always
     ports: 
       - 27018:27018
+    environment:
+      USERNAME: $MONGO_INITDB_ROOT_USERNAME
+      PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
     networks:
       - baconstation-network
+    volumes:
+      - baconstation-export:/data
     command: tail -F anything
 
   grafana:
@@ -40,5 +48,9 @@ services:
     restart: always
     ports:
       - '3000:3000'
+    environment:
+      - GF_INSTALL_PLUGINS=simpod-json-datasource
     networks:
       - baconstation-network
+    volumes:
+      - baconstation-export:/data
