@@ -32,6 +32,7 @@ services:
       - 27018:27018
     networks:
       - baconstation-network
+    command: tail -F anything
 
   grafana:
     image: grafana/grafana-oss
