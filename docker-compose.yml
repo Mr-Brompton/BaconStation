@@ -9,6 +9,9 @@ volumes:
   baconstation-export:
     driver: local
 
+  baconstation-grafana:
+    driver: local
+
 services:
 
   mongo:
@@ -33,6 +36,7 @@ services:
     restart: always
     ports: 
       - 27018:27018
+      - 8080:8080
     environment:
       USERNAME: $MONGO_INITDB_ROOT_USERNAME
       PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
@@ -49,8 +53,8 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - GF_INSTALL_PLUGINS=simpod-json-datasource
+      - GF_INSTALL_PLUGINS=yesoreyeram-infinity-datasource
     networks:
       - baconstation-network
     volumes:
-      - baconstation-export:/data
+      - baconstation-grafana:/data
